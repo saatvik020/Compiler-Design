@@ -1,0 +1,21 @@
+{d}*00 {printf("String ends in 00");}
+{d}*222{d}* {printf("String has 222");}
+
+({d})* {if(yyleng==5){
+  int i=0,sum=0;
+  for(i=0;i<5;i++){
+    sum+=yytext[i]-'0';
+  }
+  printf("Sum of digits = %d",sum);
+}}
+({d}){4} { 
+  int digit1 = yytext[0] - '0';
+  int digit2 = yytext[1] - '0';
+  int digit3 = yytext[2] - '0';
+  int digit4 = yytext[3] - '0';
+  if (digit1 <= digit2 && digit2 <= digit3 && digit3 <= digit4) {
+  printf("Ascending digits");
+}else{
+  printf("Non-ascending digits");
+}
+}
